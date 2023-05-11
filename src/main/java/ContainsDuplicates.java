@@ -1,4 +1,5 @@
-
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ContainsDuplicates {
     /**
@@ -8,6 +9,13 @@ public class ContainsDuplicates {
      * @return true if nums contains any duplicate values, false if it does not.
      */
     public boolean containsDuplicate(int[] nums){
-        return false;
+        boolean duplicate = false;
+        Set<Integer> set = Arrays.stream(nums).boxed().collect(Collectors.toSet());
+        if(nums.length > set.size()) {
+            duplicate = true;
+        } else {
+            duplicate = false;
+        }
+        return duplicate;
     }
 }
